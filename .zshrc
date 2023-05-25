@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose kubectl helm)
+plugins=(git docker docker-compose kubectl helm mvn zsh-autosuggestions last-working-dir timewarrior taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -121,9 +121,9 @@ export PATH="/usr/local/opt/ccache/libexec:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+eval "$(starship init zsh)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/jukr1/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-#eval "$(starship init bash)"
