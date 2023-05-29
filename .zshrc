@@ -99,6 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# Alias for daily notes. Creates a md for today or opens the existing
+alias mdn="nvim ~/my-notes/$(date -I date)-notes.md"
+alias nvh="nvim ."
 
 # Homebrew
 export PATH=/opt/homebrew/bin:$PATH
@@ -127,3 +130,4 @@ eval "$(starship init zsh)"
 export PATH="/Users/jukr1/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
