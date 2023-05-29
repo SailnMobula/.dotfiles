@@ -18,6 +18,7 @@ vim.opt.expandtab        = true
 vim.opt.smartindent      = true
 
 vim.opt.updatetime       = 50
+vim.opt.colorcolumn      = "80"
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt        = 'menuone,noselect'

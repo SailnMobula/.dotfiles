@@ -3,6 +3,14 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Exit File" })
 vim.keymap.set("n", "<C-s>", function() vim.cmd("w") end, { desc = "Save File" })
 vim.keymap.set("n", "<leader>w", function() vim.cmd("w") end, { desc = "Save File" })
 
+-- Awesome Primeagen remaps
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Join line below" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
+vim.keymap.set("n", "<C-z>", "nop", { desc = "Disable <C-z>" })
+
 -- Fugitive
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
 
