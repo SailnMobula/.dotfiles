@@ -3,6 +3,9 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Exit File" })
 vim.keymap.set("n", "<C-s>", function() vim.cmd("w") end, { desc = "Save File" })
 vim.keymap.set("n", "<leader>w", function() vim.cmd("w") end, { desc = "Save File" })
 
+-- My first awesome remaps
+vim.keymap.set("i", "<S-Tab>", "<C-o>A;<C-c>", { desc = "Insert semicolon at end of line" })
+
 -- Awesome Primeagen remaps
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
@@ -33,10 +36,10 @@ vim.keymap.set("n", "<leader>fk", function() require("telescope.builtin").keymap
 -- Harpoon
 vim.keymap.set("n", "<leader>hh", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Harpoon Menu" })
 vim.keymap.set("n", "<leader>ha", function() require("harpoon.mark").add_file() end, { desc = "Add File to Harpoon" })
-vim.keymap.set("n", "<leader>hu", function() require("harpoon.ui").nav_file(1) end, { desc = "Harpoon 1" })
-vim.keymap.set("n", "<leader>hi", function() require("harpoon.ui").nav_file(2) end, { desc = "Harpoon 2" })
-vim.keymap.set("n", "<leader>ho", function() require("harpoon.ui").nav_file(3) end, { desc = "Harpoon 3" })
-vim.keymap.set("n", "<leader>hp", function() require("harpoon.ui").nav_file(4) end, { desc = "Harpoon 4" })
+vim.keymap.set("n", "<C-h>", function() require("harpoon.ui").nav_file(1) end, { desc = "Harpoon 1" })
+vim.keymap.set("n", "<C-j>", function() require("harpoon.ui").nav_file(2) end, { desc = "Harpoon 2" })
+vim.keymap.set("n", "<C-k>", function() require("harpoon.ui").nav_file(3) end, { desc = "Harpoon 3" })
+vim.keymap.set("n", "<C-l>", function() require("harpoon.ui").nav_file(4) end, { desc = "Harpoon 4" })
 
 -- Neotree
 vim.keymap.set("n", "<leader>e", function() vim.cmd("NvimTreeToggle") end, { desc = "Toggle tree" })
@@ -57,7 +60,11 @@ vim.keymap.set("n", "<leader>dp", function() require("dap").pause() end, { desc 
 
 -- LSP
 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { desc = "LSP Hover" })
+vim.keymap.set("n", "gl", function() vim.diagnostic.goto_next() end, { desc = "LSP Next Diagnostic" })
 
 -- Copilot
 vim.keymap.set("n", "<leader>ce", function() vim.cmd("Copilot enable") end, { desc = "Enable Copilot" })
 vim.keymap.set("n", "<leader>cd", function() vim.cmd("Copilot disable") end, { desc = "Disable Copilot" })
+
+-- Leptos
+vim.keymap.set("n", "<leader>lf", function() vim.cmd("! leptosfmt %:p") end, { desc = "Format file with Leptos" })

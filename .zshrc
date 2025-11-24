@@ -100,7 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Alias for daily notes. Creates a md for today or opens the existing
-alias mdn="nvim ~/my-notes/$(date -I date)-notes.md"
+alias mdn="nvim ~/my-notes/ +'e ~/my-notes/$(date -I date)-notes.md'"
+# alias mdno="nvim ~/my-notes"
 alias nvh="nvim ."
 
 # Homebrew
@@ -108,12 +109,14 @@ export PATH=/opt/homebrew/bin:$PATH
 
 # Node
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
 # Hombrew Doctor recommendation
 export PATH="/usr/local/sbin:$PATH"
 
 # Add platformio
-export PATH=$HOME/.platformio/penv/bin:$PATH
+# export PATH=$HOME/.platformio/penv/bin:$PATH
 
 # Homebrew ccache
 # To install symlinks for compilers that will automatically use
@@ -131,3 +134,43 @@ export PATH="/Users/jukr1/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+export PYTHONPATH=/opt/homebrew/lib/python3.11/site-packages:$PYTHONPATH
+
+
+### Experimental
+export PATH="/Users/jukr1/Development/tutorials/rust/open-source/iggy/target/debug/:$PATH"
+export OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl@3
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jukr1/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jukr1/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jukr1/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jukr1/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/Users/jukr1/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/Users/jukr1/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
+. "$HOME/.local/bin/env"

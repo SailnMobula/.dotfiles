@@ -1,5 +1,5 @@
 require("catppuccin").setup({
-    flavour = "mocha",     -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = {
         light = "latte",
         dark = "mocha",
@@ -36,15 +36,17 @@ require("catppuccin").setup({
         dashboard = true,
         which_key = true,
         nvimtree = true,
+
         gitsigns = true,
-        neotree = {
-            enabled = true,
-            show_root = false,
-            transparent_panel = false,
-        },
         gitgutter = true,
         telescope = true,
-        cmp = true,
+        cmp = {
+            enabled = true,
+            border = {
+                completion = true,
+                documentation = true,
+            }
+        },
         native_lsp = {
             enabled = true,
             virtual_text = {
@@ -64,3 +66,9 @@ require("catppuccin").setup({
 })
 -- setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
+-- local cp = require("catppuccin.palettes").get_palette "mocha"
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = cp.surface0 })
+local colors = require("catppuccin.palettes").get_palette()
+require("catppuccin.lib.highlighter").syntax {
+	FloatBorder = { fg = colors.overlay2, bg = colors.mantle },
+}

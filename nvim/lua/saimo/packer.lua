@@ -3,18 +3,19 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', branch = '0.1.x',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
     use 'ThePrimeagen/vim-be-good'
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
     use { "catppuccin/nvim", as = "catppuccin" }
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('ThePrimeagen/harpoon')
@@ -46,7 +47,7 @@ return require('packer').startup(function(use)
     use 'ekickx/clipboard-image.nvim'
     use 'tpope/vim-fugitive'
     use 'github/copilot.vim'
-    -- use 'vigoux/LanguageTool.nvim'
+    use 'vigoux/LanguageTool.nvim'
     use {
         'lewis6991/gitsigns.nvim',
         config = function()
@@ -60,15 +61,15 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional
-        },
-        config = function()
-            require("nvim-tree").setup {}
-        end
-    }
+    -- use {
+    --     'nvim-tree/nvim-tree.lua',
+    --     requires = {
+    --         'nvim-tree/nvim-web-devicons', -- optional
+    --     },
+    --     config = function()
+    --         require("nvim-tree").setup {}
+    --     end
+    -- }
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
@@ -76,4 +77,17 @@ return require('packer').startup(function(use)
             require("lualine").setup {}
         end
     }
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require("colorizer").setup {}
+        end
+    }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+    use('jose-elias-alvarez/null-ls.nvim')
+    use('MunifTanjim/prettier.nvim')
+    use 'wuelnerdotexe/vim-astro'
 end)
