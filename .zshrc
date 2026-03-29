@@ -174,3 +174,8 @@ unset __mamba_setup
 # <<< mamba initialize <<<
 
 . "$HOME/.local/bin/env"
+
+# Added by Antigravity
+export PATH="/Users/jukr1/.antigravity/antigravity/bin:$PATH"
+
+. "$HOME/.dora/bin/env"
